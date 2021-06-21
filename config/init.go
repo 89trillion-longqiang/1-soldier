@@ -1,16 +1,16 @@
 package config
 
 import (
+	"awesomeProject/handle"
 	"encoding/json"
 	"fmt"
 
-	"awesomeProject/ctrl"
 	"awesomeProject/soldierInfo"
 	"awesomeProject/util"
 )
 func Init(jsonFlie string){
 	Umap := JsonInit(jsonFlie)
-	ctrl.Init(Umap)
+	handle.Init(Umap)
 }
 func JsonInit(jsonFlie string) map[string]*soldierInfo.Info {
 	dataJson := ParseConfigFile(jsonFlie)

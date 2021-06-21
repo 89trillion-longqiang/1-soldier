@@ -11,8 +11,9 @@
 │   ├── app.ini
 │   └── config.army.model.json
 ├── ctrl                                #处理router的请求
-│   ├── handle.go
 │   └── routerCtrl.go
+├── handle                              #处理具体业务逻辑
+│   ├── handle.go
 ├── data.json                           #生成的json文件
 ├── go.mod
 ├── main.go                             #代码入口
@@ -34,9 +35,10 @@
 | 层     | 文件夹|主要职责 |调用关系|
 | :----: | :----|:---- | :-----|
 |router  | /router|路由转发 |调用ctrl|
-|ctrl   | /ctrl|处理路由 |调用service module|
-|service | /service|处理通用逻辑| 被ctrl调用 调用module|
-|module  | /soldierInfo|数据模型 |被ctrl service调用|
+|ctrl   | /ctrl|处理路由 |调用service |
+|handle   | /handle|处理具体业务逻辑 |调用service module|
+|service | /service|处理通用逻辑|调用module|
+|module  | /soldierInfo|数据模型 |被handles service调用|
 
 #存储设计
 | 内容 | 类型 |  说明 |
