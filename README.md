@@ -40,7 +40,7 @@
 | 层     | 文件夹|主要职责 |调用关系|
 | :----: | :----|:---- | :-----|
 |router  | /router|路由转发 |调用ctrl|
-|ctrl   | /ctrl|处理路由 |调用service |
+|ctrl   | /ctrl|处理路由 |调用handle |
 |handle   | /handle|处理具体业务逻辑 |调用service module|
 |service | /service|处理通用逻辑|调用module|
 |module  | /soldierInfo|数据模型 |被handles service调用|
