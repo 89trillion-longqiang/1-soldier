@@ -21,6 +21,9 @@ func GetArmyAssembled(rarity string , stage string ,cvc string, Umap map[string]
 
 // GetRarity /通过id来获取稀有度
 func GetRarity(id string,Umap map[string]*soldierInfo.Info) string{
+	if id == "" || len(Umap) == 0 {
+		return ""
+	}
 	for k,v:=range Umap{
 		if id == k{
 			return  v.Rarity
@@ -32,6 +35,9 @@ func GetRarity(id string,Umap map[string]*soldierInfo.Info) string{
 
 // GetCombatPoints /通过id来获取战力
 func GetCombatPoints(id string,Umap map[string]*soldierInfo.Info)  string{
+	if id == "" || len(Umap) == 0 {
+		return ""
+	}
 	for k,v:=range Umap{
 		if id == k{
 			return  v.CombatPoints
@@ -43,7 +49,7 @@ func GetCombatPoints(id string,Umap map[string]*soldierInfo.Info)  string{
 
 // GetSoldiersJson /通过阶段来获取已解锁的士兵信息
 func GetSoldiersJson(stage string,Umap map[string]*soldierInfo.Info) (data []*soldierInfo.Info) {
-	if stage == "" {
+	if stage == "" || len(Umap) == 0{
 		return
 	}
 	for _, v := range Umap {

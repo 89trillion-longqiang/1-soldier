@@ -8,13 +8,12 @@ import (
 	"awesomeProject/soldierInfo"
 	"awesomeProject/util"
 )
-func Init(){
-	Umap := JsonInit()
+func Init(jsonFlie string){
+	Umap := JsonInit(jsonFlie)
 	ctrl.Init(Umap)
-
 }
-func JsonInit() map[string]*soldierInfo.Info {
-	dataJson := ParseConfigFile()
+func JsonInit(jsonFlie string) map[string]*soldierInfo.Info {
+	dataJson := ParseConfigFile(jsonFlie)
 	var Umap map[string]*soldierInfo.Info
 
 	err := json.Unmarshal(dataJson, &Umap)
