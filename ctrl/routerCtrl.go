@@ -1,12 +1,13 @@
 package ctrl
 
 import (
+	"awesomeProject/handle"
 	"github.com/gin-gonic/gin"
 )
 
 func GetStage(c *gin.Context)  {
 	stage := c.Query("stage")
-	retMap,retInfo :=HandleGetStage(stage)
+	retMap,retInfo := handle.HandleGetStage(stage)
 	c.JSON(200, gin.H{
 		"condition":retMap["condition"],
 		"stage" : retMap["stage"],
@@ -17,7 +18,7 @@ func GetArmyAssembled(c *gin.Context){
 	rarity := c.Query("rarity")
 	stage  := c.Query("stage")
 	cvc := c.Query("cvc")
-	dataRes ,condition:= HandleGetArmyAssembled(rarity,stage,cvc,*UMAP)
+	dataRes ,condition:= handle.HandleGetArmyAssembled(rarity,stage,cvc,*handle.UMAP)
 	c.JSON(200, gin.H{
 		"condition":condition,
 		"stage" : stage,
@@ -27,7 +28,7 @@ func GetArmyAssembled(c *gin.Context){
 
 func IdGetRarity(c *gin.Context){
 	id := c.Query("id")
-	ret := HandleIdGetRarity(id)
+	ret := handle.HandleIdGetRarity(id)
 
 	c.JSON(200, gin.H{
 		"condition":ret["condition"],
@@ -37,7 +38,7 @@ func IdGetRarity(c *gin.Context){
 }
 func IdGetCombatPoints(c *gin.Context){
 	id := c.Query("id")
-	ret := HandleIdGetCombatPoints(id)
+	ret := handle.HandleIdGetCombatPoints(id)
 
 	c.JSON(200, gin.H{
 		"condition":ret["condition"],
@@ -49,7 +50,7 @@ func IdGetCombatPoints(c *gin.Context){
 
 func GetSoldiersJson(c *gin.Context){
 	stage := c.Query("stage")
-	retMap , retInfo := HandleGetSoldiersJson(stage)
+	retMap , retInfo := handle.HandleGetSoldiersJson(stage)
 
 	c.JSON(200, gin.H{
 		"condition":retMap["condition"],

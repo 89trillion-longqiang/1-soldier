@@ -1,4 +1,4 @@
-package ctrl
+package handle
 
 import (
 	"awesomeProject/service"
